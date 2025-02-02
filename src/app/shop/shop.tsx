@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/select"
 
 import { useState, useEffect } from "react";
-import { client } from "@/sanity/lib/client";
+import  client  from "@/sanity/lib/client";
 import { Product } from "../types/types";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 

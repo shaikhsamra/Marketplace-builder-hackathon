@@ -1,4 +1,4 @@
-import { client } from "@/sanity/lib/client";
+import client  from "@/sanity/lib/client";
 import { Product } from "@/app/types/types";
 
 export const fetchProducts = async (): Promise<Product[]> => {
