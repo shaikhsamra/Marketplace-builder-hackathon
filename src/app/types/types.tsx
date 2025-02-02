@@ -1,4 +1,8 @@
 export interface Product {
+  selectedColor: string | null;
+  selectedSize: string | null;
+  imageUrl: string ;
+  quantity: number;
   _id: string;
   name: string;
   price: number;
@@ -12,4 +16,6 @@ export interface Product {
   sizes: string[];
   rating: number;
   slug: string; // "slug.current" is fetched as a string
+  inventory: number;
+  
 }

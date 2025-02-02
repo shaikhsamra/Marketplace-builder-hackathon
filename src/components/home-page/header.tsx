@@ -8,7 +8,7 @@ import { NavigationMenuDemo } from './navMenu'
 
 const Header = () => {
   return (
-   <header className='flex justify-between items-center w-full h-[60px] max-w-screen-2xl m-auto'>
+   <header className='flex justify-between items-center w-full h-[60px] max-w-screen-2xl m-auto shadow-sm border-b md:p-10'>
     {/* left */}
     <div className='flex justify-center items-center'>
     <SheetSide/>
@@ -41,7 +41,9 @@ const Header = () => {
 </Link>
 <FaRegUserCircle className='text-2xl cursor-pointer hover:text-gray-500'/>
     
+
 </div>
+
    </header>
   )
 }

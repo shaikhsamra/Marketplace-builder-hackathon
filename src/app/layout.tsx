@@ -4,6 +4,9 @@ import "./globals.css";
 import Header from "@/components/home-page/header";
 import HeaderTop from "@/components/home-page/headerTop";
 import Footer from "@/components/home-page/footer";
+// import { CartProvider } from "@/app/cartContext";
+
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,10 +34,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <HeaderTop/>
-        <Header />
-        {children}
-        <Footer/>
+        {/* Wrap your layout in CartProvider */}
+        {/* <CartProvider> */}
+          <HeaderTop />
+          <Header />
+          {children} {/* Main content will be injected here */}
+          <Footer />
+        {/* </CartProvider> */}
       </body>
     </html>
   );

@@ -4,39 +4,65 @@ import Link from "next/link";
 import { FaRegStar, FaStar, FaStarHalf } from "react-icons/fa";
 import { Product } from "@/app/types/types";
 import { urlFor } from "@/sanity/lib/image";
-import HoverButton from "./hoverButton";
+
 
 const ProductCard: React.FC<Product> = ({
+  _id,
   name,
   price,
   image,
   discountPercent,
   rating = 0,
-  slug
+  slug,
+  quantity = 1, // Default value if not provided
+  oldPrice = 0, // Default value if not provided
+  description = "", // Default empty string if not provided
+  category = "General", // Default category if not provided
 }) => {
   const numericPrice = price || 0; // Default to 0 if price is undefined
   const numericOldPrice =
     discountPercent && price
       ? (price * (100 + discountPercent)) / 100
-      : null; // Calculate old price only if valid
+      : oldPrice; // Use oldPrice from props or default value
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
   const priceReduction = discountPercent ? `-${discountPercent}%` : "";
+  
+
+  const product: Product = {
+    _id,
+    name,
+    price,
+    image,
+    discountPercent,
+    rating,
+    slug,
+    quantity,
+    oldPrice,
+    description,
+    category,
+    isNew: false,
+    colors: [],
+    sizes: [],
+    inventory: 0,
+    imageUrl: "",
+    selectedColor: null,
+    selectedSize: null
+  };
 
   return (
     <div className="p-4 rounded-lg text-start max-w-screen-2xl mx-auto">
       {/* Product Image */}
-      <Link href={`/product/${slug || ""}`}>
-        {/* Check slug and image to avoid issues with undefined */}
-        <div className="relative group cursor-pointer rounded-lg md:w-[300px] md:h-[300px] w-[160px] h-[160px]">
+      <Link href={`/product/${product.slug}`}>
+        <div className="relative overflow-hidden group cursor-pointer rounded-lg md:w-[300px] md:h-[300px] w-[160px] h-[160px]">
           <Image
-            src={image ? urlFor(image).url() : "/placeholder-image.jpg"} // Provide fallback image if missing
+            src={image ? urlFor(image).url() : "/placeholder-image.jpg"}
             alt={name}
             fill
-            className="object-cover rounded-lg"
+            className="object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-110"
           />
-          <HoverButton/>
         </div>
+      </Link>
 
       {/* Product Details */}
       <h3 className="font-bold md:text-[20px] text-sm mt-2">{name}</h3>
@@ -69,7 +95,6 @@ const ProductCard: React.FC<Product> = ({
         ))}
         <p className="text-gray-500 text-sm pl-2 font-semibold">{rating}/5</p>
       </div>
-        </Link>
     </div>
   );
 };

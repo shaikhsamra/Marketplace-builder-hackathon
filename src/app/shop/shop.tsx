@@ -2,12 +2,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import Filter from "@/app/shop/filter";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 import { useState, useEffect } from "react";
-import { client } from "@/sanity/lib/client"; // Sanity client import
+import { client } from "@/sanity/lib/client";
 import { Product } from "../types/types";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
-import HoverButton from "@/components/home-page/hoverButton";
 
 
 const fetchProducts = async () => {
@@ -17,6 +23,7 @@ const fetchProducts = async () => {
         _id,
         name,
         price,
+        inventory,
         "image": image.asset->url,
         discountPercent,
         isNew,
@@ -41,16 +48,18 @@ const Shop = () => {
   useEffect(() => {
     fetchProducts().then((data) => {
       const formattedData = data.map((item: Product) => ({
-        id: item._id,
+        _id: item._id, 
         name: item.name,
         price: Number(item.price),
         oldPrice: item.discountPercent
           ? (Number(item.price) * (100 + Number(item.discountPercent))) / 100
           : null,
         image: item.image,
-        discountPercent: item.discountPercent || 0,
+        discountPercent: item.discountPercent || 0, 
         rating: item.rating || 0,
         slug: item.slug || "",
+        colors: item.colors,
+        sizes: item.sizes,
       }));
       setProducts(formattedData);
     });
@@ -69,23 +78,31 @@ const Shop = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row max-w-screen-2xl mx-auto p-4 md:p-10">
+    <div className="flex flex-col md:flex-row max-w-screen-2xl mx-auto p-4">
       <Filter />
       <main className="w-full">
         <div className="flex items-center justify-between mb-6">
           <h1 className="hidden sm:block text-2xl md:text-3xl font-bold">
             Casual
           </h1>
-          <p className="hidden sm:block md:ml-[53%]">
+          <p className="hidden sm:block md:ml-[50%]">
             Showing {indexOfFirstProduct + 1}-{indexOfLastProduct} of{" "}
             {products.length} Products
           </p>
-          <p className="hidden md:flex gap-2 items-center">
-            Sort by:
-            <span className="font-bold flex items-center">
-              Most Popular <MdOutlineKeyboardArrowDown />
-            </span>
-          </p>
+          <div className="hidden md:flex items-center gap-2">
+                Sort by:{" "}
+          
+                <Select>
+  <SelectTrigger className="w-[150px]">
+    <SelectValue placeholder="Most Popular" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Most Popular</SelectItem>
+    <SelectItem value="dark">Low Price</SelectItem>
+    <SelectItem value="system">Heigh Price</SelectItem>
+  </SelectContent>
+</Select>
+            </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
           {currentProducts.map((product) => {
@@ -101,9 +118,8 @@ const Shop = () => {
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-110"
                     />
-                    <HoverButton/>
                   </div>
                 <div className="mt-4">
                   <h2 className="text-lg md:text-[20px] font-bold">

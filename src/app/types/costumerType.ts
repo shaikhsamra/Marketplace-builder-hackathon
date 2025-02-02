@@ -1,6 +1,9 @@
 export type Customer ={
-    name: string,
-    email: string,
-    phoneNumber: string,
-    address: string,
+    _id: string;
+    price: number;
+    quantity: number;
+    selectedColor: string;
+    selectedSize: string;
+    imageUrl: string;
+    
 }
