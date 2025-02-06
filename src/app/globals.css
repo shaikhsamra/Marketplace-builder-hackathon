@@ -73,3 +73,12 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 2s linear infinite;
+}

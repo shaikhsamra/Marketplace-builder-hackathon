@@ -113,7 +113,7 @@ const Shop = () => {
             return (
               <div key={product._id} className="p-4 relative group">
                 <Link href={`/product/${product.slug}`}>
-                  <div className="relative overflow-hidden h-[300px] md:h-[300px]  cursor-pointer">
+                  <div className="relative overflow-hidden h-[180px] md:h-[300px] md:w-[300px] w-[170px] cursor-pointer">
                     <Image
                       src={product.image}
                       alt={product.name}

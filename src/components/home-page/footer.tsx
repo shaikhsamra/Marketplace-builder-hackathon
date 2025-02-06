@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="max-w-screen-2xl mx-auto w-full h-auto">
       {/* Newsletter Section */}
-      <div className="flex flex-col md:flex-row items-center bg-black lg:w-[1240px] sm:w-auto h-auto rounded-xl justify-between p-8 max-w-screen-2xl mx-auto">
+      <div className="flex flex-col md:flex-row items-center bg-black lg:w-[1240px] w-auto sm:w-auto h-auto rounded-xl justify-between p-8 max-w-screen-2xl mx-auto">
         {/* Heading */}
         <h1 className="font-integral font-extrabold md:text-4xl text-2xl text-white text-start md:text-left md:w-1/2">
           STAY UPTO DATE ABOUT OUR LATEST OFFERS

@@ -95,11 +95,11 @@ const Cart = () => {
                     />
                   )}
                   <div>
-                    <h2 className="text-lg font-semibold">{item.name}</h2>
+                    <h2 className="text-sm lg:text-lg font-semibold">{item.name}</h2>
                     {/* Display original price and discounted price if discount is applied */}
                     {item.discount ? (
                       <div>
-                        <p className="text-sm text-gray-500 line-through">${item.price.toFixed(2)}</p>
+                        <p className="text-sm lg:text-lg text-gray-500 line-through">${item.price.toFixed(2)}</p>
                         <p className="font-bold">${discountedPrice.toFixed(2)}</p>
                       </div>
                     ) : (

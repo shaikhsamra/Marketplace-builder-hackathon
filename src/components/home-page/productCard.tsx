@@ -51,7 +51,7 @@ const ProductCard: React.FC<Product> = ({
   };
 
   return (
-    <div className="p-4 rounded-lg text-start max-w-screen-2xl">
+    <div className="p-4 rounded-lg text-start max-w-screen-2xl mx-auto">
       {/* Product Image */}
       <Link href={`/product/${product.slug}`}>
         <div className="relative overflow-hidden cursor-pointer rounded-lg md:w-[300px] md:h-[300px] w-[140px] h-[140px]">
