@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <main className="w-full h-full md:h-auto flex flex-col lg:flex-row justify-between md:items-center items-start bg-[#F2F0F1] max-w-screen-2xl m-auto">
+    <main className="w-full h-full md:h-auto flex flex-col lg:flex-row justify-between items-start bg-[#F2F0F1] max-w-screen-2xl m-auto">
         {/* Left  */}
       <div className="w-full md:w-[500px] md:mt-28 md:ml-28 mt-3 pl-3 ">
         <h1 className="text-4xl md:text-5xl font-extrabold font-integral">FIND CLOTHES THAT MATCH YOUR STYLE</h1>

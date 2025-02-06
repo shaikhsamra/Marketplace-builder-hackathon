@@ -91,7 +91,7 @@ const Cart = () => {
                       alt={item.name}
                       width={200}
                       height={200}
-                      className="w-20 h-20 rounded"
+                      className=" w-16 h-16 lg:w-20 lg:h-20  rounded"
                     />
                   )}
                   <div>
@@ -107,18 +107,18 @@ const Cart = () => {
                     )}
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 lg:gap-4">
                   {/* Quantity Controls */}
                   <button
                     onClick={() => updateQuantity(index, false)}
-                    className="w-8 h-8 border rounded text-xl"
+                    className="w-6 h-6 lg:w-8 lg:h-8 border rounded text-md lg:text-xl"
                   >
                     -
                   </button>
                   <span>{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(index, true)}
-                    className="w-8 h-8 border rounded text-xl"
+                    className="w-6 h-6 lg:w-8 lg:h-8 border rounded text-md lg:text-xl"
                   >
                     +
                   </button>
