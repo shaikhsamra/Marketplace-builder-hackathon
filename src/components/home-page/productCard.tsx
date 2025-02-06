@@ -51,10 +51,10 @@ const ProductCard: React.FC<Product> = ({
   };
 
   return (
-    <div className="p-4 rounded-lg text-start max-w-screen-2xl mx-auto">
+    <div className="p-4 rounded-lg text-start max-w-screen-2xl">
       {/* Product Image */}
       <Link href={`/product/${product.slug}`}>
-        <div className="relative overflow-hidden group cursor-pointer rounded-lg md:w-[300px] md:h-[300px] w-[160px] h-[160px]">
+        <div className="relative overflow-hidden cursor-pointer rounded-lg md:w-[300px] md:h-[300px] w-[140px] h-[140px]">
           <Image
             src={image ? urlFor(image).url() : "/placeholder-image.jpg"}
             alt={name}
@@ -69,15 +69,15 @@ const ProductCard: React.FC<Product> = ({
 
       {/* Price Details */}
       <div className="flex items-start justify-start space-x-2 mt-2">
-        <span className="text-black font-bold md:text-[24px] text-xl">
+        <span className="text-black font-bold md:text-[24px] text-lg">
           ${numericPrice.toFixed(0)}
         </span>
         {numericOldPrice && numericOldPrice > numericPrice && (
           <>
-            <span className="text-gray-400 md:text-[24px] text-xl font-bold line-through">
+            <span className="text-gray-400 md:text-[24px] text-lg font-bold line-through">
               ${numericOldPrice.toFixed(0)}
             </span>
-            <span className="text-red-500 border-2 rounded-full bg-red-200 px-2 text-sm md:mt-2 mt-1">
+            <span className="text-red-500 border-2 rounded-full bg-red-200 px-1 text-sm lg:mt-2 mt-1">
               {priceReduction}
             </span>
           </>

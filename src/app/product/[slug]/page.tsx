@@ -9,6 +9,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { TiMinus, TiPlus } from "react-icons/ti";
 import ReviewLinks from "@/app/product/reviewLinks/links";
 import AddToCartButton from "@/components/buttons/addToCartButton"; // adjust the path as needed
+import BreadcrumbCart from "./slugNav";
 
 interface ProductPageProps {
   params: { slug: string };
@@ -66,12 +67,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
     colors,
     sizes,
     rating,
+    category,
   } = product;
 
   return (
     <div className="max-w-screen-2xl mx-auto bg-gray-50 px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-        <div className="flex flex-col-reverse md:flex-row gap-5">
+      <BreadcrumbCart category={category} title={name}/>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="flex flex-col-reverse lg:flex-row gap-5">
           <div className="w-[160px] h-[130px] mt-2 rounded-2xl">
             {image && (
               <Image
@@ -84,14 +87,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
             )}
           </div>
           {/* Product Image */}
-          <div className="w-full h-auto rounded-full">
+          <div className=" h-auto rounded-full md:w-[500px] lg:w-full">
             {image && (
               <Image
                 src={urlFor(image).url()}
                 alt={name}
                 width={500}
                 height={500}
-                className="rounded-lg  w-full h-auto"
+                className="rounded-lg h-auto md:w-[500px] lg:w-full"
               />
             )}
           </div>
@@ -182,7 +185,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
           {/* Quantity Controls (dummy button for now) */}
           <div className="flex gap-5 -mt-4">
-            <button className="flex md:gap-10 gap-4 items-center mt-6 bg-black text-white py-3 px-8  rounded-full font-satoshi">
+            <button className="flex lg:gap-10 gap-4 items-center mt-6 bg-black text-white py-3 px-8  rounded-full font-satoshi">
               <TiMinus /> 0 <TiPlus />
             </button>
             {/* Use our client component for Add to Cart */}

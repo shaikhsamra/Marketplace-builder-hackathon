@@ -15,14 +15,14 @@ const Header = () => {
         <Link href="/" className = "text-3xl md:text-3xl font-extrabold font-integral pl-2"> SHOP.CO </Link>
     </div>
     {/* navbar */}
-    <ul className='hidden md:block'>
+    <ul className='hidden lg:block'>
         <li className='space-x-5 flex items-center'>
             <Link href={""}>
             <NavigationMenuDemo/>
             </Link>
             <Link href={"/shop"}>On Sale</Link>
-            <Link href={""}>New Arrivals</Link>
-            <Link href={""}>Brands</Link>
+            <Link href={"/shop"}>New Arrivals</Link>
+            <Link href={"/shop"}>Brands</Link>
         </li>
     </ul>
 
@@ -30,7 +30,7 @@ const Header = () => {
 
 {/* cart */}
 <div className='flex items-center mr-7 space-x-5'>
-<div className='hidden md:block'>
+<div className='hidden lg:block'>
     <div className='flex justify-start items-center w-[330px] h-[40px] rounded-[62px] bg-[#F0F0F0] '>
     <IoSearchOutline  className='text-xl ml-2'/>
     <input placeholder="Search For Products" className='w-full h-[40px] ml-2 outline-none rounded-[62px] bg-[#F0F0F0]' />

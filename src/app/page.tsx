@@ -125,7 +125,7 @@ const HomePage: React.FC = () => {
       <BrandLogo />
 
       {/* Products Section */}
-      <div className="container mx-auto px-4 mt-20">
+      <div className="container mx-auto px-4 mt-20 max-w-screen-2xl">
         {/* New Arrivals */}
         <ProductList title="New Arrivals" products={newArrivals} />
         <ButtonDemo />

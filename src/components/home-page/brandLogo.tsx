@@ -14,7 +14,7 @@ const BrandLogo = () => {
       ].map((logo, index) => (
         <div
           key={index}
-          className="flex justify-center items-center p-2 w-[100px] md:w-[200px]"
+          className="flex justify-center items-center p-2 w-[100px] lg:w-[200px]"
         >
           <Image
             src={logo.src}

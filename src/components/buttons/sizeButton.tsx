@@ -23,7 +23,7 @@ const SizeSelector = ({ sizes, selectedSize, setSelectedSize }: SizeSelectorProp
           {sizes.map((size, index) => (
             <button
               key={index}
-              className={`px-4 md:px-12 py-2 border rounded-full md:text-[16px] text-md font-satoshi transition-all duration-300 ${
+              className={`px-6 md:px-12 py-2 border rounded-full md:text-[16px] text-[10px] font-satoshi transition-all duration-300 ${
                 selectedSize === size ? "bg-black text-white" : "bg-[#F0EEED] text-black"
               }`}
               onClick={() => handleClick(size)}  // Call handleClick on button click

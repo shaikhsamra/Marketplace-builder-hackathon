@@ -95,7 +95,7 @@ const Footer = () => {
             <div className="text-center md:text-left font-satoshi text-sm text-gray-500">
               &copy; {new Date().getFullYear()} SHOP.CO. All Rights Reserved.
             </div>
-            <div className="flex space-x-4 mt-4 md:mt-0">
+            <div className="flex lg:space-x-4 mt-4 md:mt-0 ">
               <Image src="/footer/img1.png" alt="Visa" width={60} height={60} />
               <Image src="/footer/img2.png" alt="MasterCard" width={60} height={60} />
               <Image src="/footer/img3.png" alt="PayPal" width={60} height={60} />

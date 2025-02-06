@@ -14,7 +14,7 @@ const Hero = () => {
           designed to bring out your individuality and cater to your sense of
           style.
         </p>
-        <button className="bg-black items-center justify-center py-3 md:px-12 px-32 text-sm text-white rounded-[22px] hover:text-black hover:bg-transparent hover:border-2 shadow-lg mt-4">Shop Now</button>
+        <button className="bg-black items-center justify-center py-3 md:px-12 px-32 text-sm text-white rounded-[22px] hover:text-black hover:bg-transparent hover:border-2 shadow-lg mt-4 md:m-2 ">Shop Now</button>
       </div>
 
       <Ratting/>

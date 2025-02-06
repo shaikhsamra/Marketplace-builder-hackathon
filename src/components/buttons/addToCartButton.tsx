@@ -36,7 +36,7 @@ export default function AddToCartButton({ product }: AddToCartButtonProps) {
   return (
     <button
       onClick={handleAddToCart}
-      className="mt-6 bg-black text-white py-3 px-16 md:px-[150px] rounded-full font-satoshi"
+      className="mt-6 bg-black text-white py-1 px-10 lg:w-[400px] md:w-[300px]  lg:text-lg rounded-full font-satoshi"
     >
       Add to Cart
     </button>
