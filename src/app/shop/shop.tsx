@@ -85,7 +85,7 @@ const Shop = () => {
           <h1 className="hidden md:block text-2xl md:text-3xl font-bold">
             Casual
           </h1>
-          <p className="hidden md:block md:ml-[50%]">
+          <p className="hidden lg:block md:ml-[40%]">
             Showing {indexOfFirstProduct + 1}-{indexOfLastProduct} of{" "}
             {products.length} Products
           </p>
@@ -104,7 +104,7 @@ const Shop = () => {
 </Select>
             </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {currentProducts.map((product) => {
             const fullStars = Math.floor(product.rating);
             const hasHalfStar = product.rating % 1 !== 0;
@@ -113,7 +113,7 @@ const Shop = () => {
             return (
               <div key={product._id} className="p-4 relative group">
                 <Link href={`/product/${product.slug}`}>
-                  <div className="relative overflow-hidden h-[180px] md:h-[300px] md:w-[300px] w-[170px] cursor-pointer">
+                  <div className="relative overflow-hidden h-[180px] lg:h-[300px] lg:w-[300px] w-[170px]  cursor-pointer">
                     <Image
                       src={product.image}
                       alt={product.name}

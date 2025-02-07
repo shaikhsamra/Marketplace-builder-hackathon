@@ -1,44 +1,92 @@
-// components/AddToCartButton.tsx
+// // components/AddToCartButton.tsx
+// "use client";
+
+// import { useRouter } from "next/navigation";
+// import { Product } from "@/app/types/types"; // adjust the import path as needed
+
+// interface AddToCartButtonProps {
+//   product: Product;
+// }
+
+// export default function AddToCartButton({ product }: AddToCartButtonProps) {
+//   const router = useRouter();
+
+//   const handleAddToCart = () => {
+//     // Retrieve any existing cart items from localStorage
+//     const storedCart = localStorage.getItem("cartItems");
+//     const cartItems = storedCart ? JSON.parse(storedCart) : [];
+
+//     // Map product to match CartItem interface:
+//     // If your product image is stored under 'image', but your cart expects 'img', do this:
+//     const productForCart = {
+//       ...product,
+//       img: product.image, // set the 'img' property based on product.image
+//     };
+
+//     // Add the new product to the cart
+//     cartItems.push(productForCart);
+
+//     // Save updated cart items
+//     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+//     // Navigate to the cart page
+//     router.push("/cart");
+//   };
+
+//   return (
+//     <button
+//       onClick={handleAddToCart}
+//       className="mt-6 bg-black text-white py-1 px-10 lg:w-[400px] md:w-[300px]  lg:text-lg rounded-full font-satoshi"
+//     >
+//       Add to Cart
+//     </button>
+//   );
+// }
+
 "use client";
 
-import { useRouter } from "next/navigation";
-import { Product } from "@/app/types/types"; // adjust the import path as needed
+import React from "react";
+import { Product } from "@/app/types/types";
+
 
 interface AddToCartButtonProps {
   product: Product;
+  selectedColor: string;
+  selectedSize: string;
 }
 
-export default function AddToCartButton({ product }: AddToCartButtonProps) {
-  const router = useRouter();
+const AddToCartButton: React.FC<AddToCartButtonProps> = ({
+  product,
+  selectedColor,
+  selectedSize,
+}) => {
+  const addToCart = () => {
+  
 
-  const handleAddToCart = () => {
-    // Retrieve any existing cart items from localStorage
-    const storedCart = localStorage.getItem("cartItems");
-    const cartItems = storedCart ? JSON.parse(storedCart) : [];
+    const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
 
-    // Map product to match CartItem interface:
-    // If your product image is stored under 'image', but your cart expects 'img', do this:
-    const productForCart = {
+    const newItem = {
       ...product,
-      img: product.image, // set the 'img' property based on product.image
+      quantity: 1,
+      // Add the selected options
+      selectedColor,
+      selectedSize,
     };
 
-    // Add the new product to the cart
-    cartItems.push(productForCart);
-
-    // Save updated cart items
+    // Optionally check if the item already exists in the cart
+    cartItems.push(newItem);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-    // Navigate to the cart page
-    router.push("/cart");
+    alert("Added to cart!");
   };
 
   return (
     <button
-      onClick={handleAddToCart}
-      className="mt-6 bg-black text-white py-1 px-10 lg:w-[400px] md:w-[300px]  lg:text-lg rounded-full font-satoshi"
+      onClick={addToCart}
+      className="bg-black text-white py-3 px-8 rounded-full font-satoshi"
     >
       Add to Cart
     </button>
   );
-}
+};
+
+export default AddToCartButton;

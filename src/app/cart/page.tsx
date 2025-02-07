@@ -15,6 +15,8 @@ interface CartItem {
   quantity: number;
   image?: string; // optional image if available
   discount?: number; // optional discount percentage
+  selectedColor?: string; 
+  selectedSize?: string;
   // Include other fields as needed (like size, color, etc.)
 }
 
@@ -97,6 +99,16 @@ const Cart = () => {
                   <div>
                     <h2 className="text-sm lg:text-lg font-semibold">{item.name}</h2>
                     {/* Display original price and discounted price if discount is applied */}
+                    {item.selectedColor && (
+                      <p className="text-sm text-gray-600">
+                        Color: {item.selectedColor}
+                      </p>
+                    )}
+                    {item.selectedSize && (
+                      <p className="text-sm text-gray-600">
+                        Size: {item.selectedSize}
+                      </p>
+                    )}
                     {item.discount ? (
                       <div>
                         <p className="text-sm lg:text-lg text-gray-500 line-through">${item.price.toFixed(2)}</p>
